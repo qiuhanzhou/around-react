@@ -1,0 +1,14 @@
+.page {
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #000;
+  font-family: 'inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
