@@ -7,7 +7,7 @@ export default function PopupWithForm(props) {
     if (props.isOpen) {
       modal.focus()
     }
-  }, [props.isOpen])
+  }, [props.isOpen, modal])
   return (
     <div
       className={`modal modal_type_${props.name} ${

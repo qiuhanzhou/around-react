@@ -13,7 +13,6 @@ export default function Main(props) {
     api
       .getUserInfo()
       .then((values) => {
-        console.log(values)
         const { name, about, avatar } = values
         setUserName(name)
         setUserDescription(about)
@@ -28,7 +27,6 @@ export default function Main(props) {
     api
       .getInitialCards()
       .then((values) => {
-        console.log(values)
         setCards(values)
       })
       .catch((err) => {
@@ -72,9 +70,10 @@ export default function Main(props) {
 
       <section className='places'>
         <ul className='elements-grid cards-container'>
-          {cards.map((item) => (
+          {cards.map((item, i) => (
             <Card
               card={item}
+              key={i}
               onCardClick={(card) => {
                 props.onCardClick(card)
               }}

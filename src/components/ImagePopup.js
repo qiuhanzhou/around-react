@@ -7,7 +7,7 @@ export default function ImagePopup(props) {
     if (props.isOpen) {
       modal.focus()
     }
-  }, [props.isOpen])
+  }, [props.isOpen, modal])
 
   return (
     <div

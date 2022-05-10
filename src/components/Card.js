@@ -14,6 +14,7 @@ export default function Card(props) {
         className='card__image'
         src={props.card.link}
         onClick={handleClick}
+        alt={props.card.name}
       />
       <div className='card__info'>
         <h2 className='card__title'>{props.card.name}</h2>
