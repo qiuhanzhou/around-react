@@ -1,5 +1,5 @@
 export default function Card(props) {
-  function handleClick(card) {
+  function handleClick() {
     props.onCardClick(props.card)
   }
 

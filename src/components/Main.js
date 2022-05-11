@@ -4,9 +4,9 @@ import api from '../utils/api'
 import Card from './Card'
 
 export default function Main(props) {
-  const [userName, setUserName] = React.useState()
-  const [userDescription, setUserDescription] = React.useState()
-  const [userAvatar, setUserAvatar] = React.useState()
+  const [userName, setUserName] = React.useState('')
+  const [userDescription, setUserDescription] = React.useState('')
+  const [userAvatar, setUserAvatar] = React.useState('')
   const [cards, setCards] = React.useState([])
 
   React.useEffect(() => {
@@ -70,14 +70,8 @@ export default function Main(props) {
 
       <section className='places'>
         <ul className='elements-grid cards-container'>
-          {cards.map((item, i) => (
-            <Card
-              card={item}
-              key={i}
-              onCardClick={(card) => {
-                props.onCardClick(card)
-              }}
-            />
+          {cards.map((item) => (
+            <Card card={item} key={item._id} onCardClick={props.onCardClick} />
           ))}
         </ul>
       </section>

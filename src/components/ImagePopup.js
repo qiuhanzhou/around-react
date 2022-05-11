@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function ImagePopup(props) {
-  const modal = document.querySelector('.modal_type_image')
+  const modalRef = useRef(null)
 
   useEffect(() => {
     if (props.isOpen) {
-      modal.focus()
+      modalRef.current.focus()
     }
-  }, [props.isOpen, modal])
+  }, [props.isOpen])
 
   return (
     <div
@@ -17,6 +17,7 @@ export default function ImagePopup(props) {
       onClick={props.onClose}
       onKeyDown={props.onClose}
       tabIndex='0'
+      ref={modalRef}
     >
       <div className='modal__content modal__content_type_image'>
         <button

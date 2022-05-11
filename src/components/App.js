@@ -1,5 +1,4 @@
 import React from 'react'
-import '../index.css'
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
@@ -13,7 +12,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false)
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
-  const [selectedCard, setSelectedCard] = React.useState([])
+  const [selectedCard, setSelectedCard] = React.useState({})
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true)
@@ -30,7 +29,7 @@ function App() {
     setIsAddPlacePopupOpen(false)
     setIsEditAvatarPopupOpen(false)
     setIsImagePopupOpen(false)
-    setSelectedCard([])
+    setSelectedCard({})
   }
 
   function handleCardClick(card) {
@@ -57,9 +56,7 @@ function App() {
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
-          onCardClick={(card) => {
-            handleCardClick(card)
-          }}
+          onCardClick={handleCardClick}
         />
         <Footer />
         <PopupWithForm
@@ -67,6 +64,7 @@ function App() {
           title='Edit profile'
           isOpen={isEditProfilePopupOpen}
           onClose={handleCloseAllPopups}
+          buttonText='Save'
         >
           <label className='modal__form-field'>
             <input
@@ -95,19 +93,13 @@ function App() {
             />
             <span className='modal__error about-input-error'></span>
           </label>
-          <button
-            type='submit'
-            aria-label='submit'
-            className='modal__submit-button'
-          >
-            Save
-          </button>
         </PopupWithForm>
         <PopupWithForm
           name='add-card'
           title='New Place'
           isOpen={isAddPlacePopupOpen}
           onClose={handleCloseAllPopups}
+          buttonText='Create'
         >
           <label className='modal__form-field'>
             <input
@@ -134,19 +126,12 @@ function App() {
             />
             <span className='modal__error url-input-error'></span>
           </label>
-
-          <button
-            type='submit'
-            aria-label='submit'
-            className='modal__submit-button'
-          >
-            Create
-          </button>
         </PopupWithForm>
         <PopupWithForm
           name='delete-card'
           title='Are you sure?'
           onClose={handleCloseAllPopups}
+          buttonText='Save'
         >
           <button
             type='submit'
@@ -161,6 +146,7 @@ function App() {
           title='Update profile picture'
           isOpen={isEditAvatarPopupOpen}
           onClose={handleCloseAllPopups}
+          buttonText='Save'
         >
           <label className='modal__form-field'>
             <input
@@ -173,14 +159,6 @@ function App() {
             />
             <span className='modal__error link-input-error'></span>
           </label>
-
-          <button
-            type='submit'
-            aria-label='submit'
-            className='modal__submit-button'
-          >
-            Save
-          </button>
         </PopupWithForm>
         <ImagePopup
           isOpen={isImagePopupOpen}
