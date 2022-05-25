@@ -69,7 +69,7 @@ function App() {
   function handleCardDelete(card) {
     // Send a request to the API and getting the updated card data
     api
-      .addCard(card._id)
+      .deleteCard(card._id)
       .then(() => {
         setCards((state) =>
           state.filter((currentCard) => currentCard._id !== card._id),
@@ -186,7 +186,7 @@ function App() {
             onAddPlaceSubmit={handleAddPlaceSubmit}
           />
 
-          <PopupWithForm
+          {/* <PopupWithForm
             name='delete-card'
             title='Are you sure?'
             onClose={handleCloseAllPopups}
@@ -199,7 +199,7 @@ function App() {
             >
               Yes
             </button>
-          </PopupWithForm>
+          </PopupWithForm> */}
 
           <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
