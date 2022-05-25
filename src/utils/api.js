@@ -63,12 +63,20 @@ class Api {
     }).then(this._handleServerResponse)
   }
 
-  updateProfilePicture(link) {
+  changeLikeCardStatus(cardId, like) {
+    if (like) {
+      return this.likeCard(cardId)
+    } else {
+      return this.unlikeCard(cardId)
+    }
+  }
+
+  setUserAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: link,
+        avatar,
       }),
     }).then(this._handleServerResponse)
   }

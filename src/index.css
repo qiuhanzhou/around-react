@@ -13,6 +13,7 @@
 @import url(./blocks/profile/__name/profile__name.css);
 @import url(./blocks/profile/__title/profile__title.css);
 @import url(./blocks/elements-grid/elements-grid.css);
+@import url(./blocks/card/__close-button/_hidden/card__close-button_hidden.css);
 @import url(./blocks/card/__info/card__info.css);
 @import url(./blocks/card/__like-button/card__like-button.css);
 @import url(./blocks/card/__like-button/_full/card__like-button_full.css);
