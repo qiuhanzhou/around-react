@@ -15,7 +15,7 @@ export default function EditProfilePopup(props) {
   useEffect(() => {
     setName(currentUser.name)
     setDescription(currentUser.about)
-  }, [currentUser])
+  }, [currentUser, props.isOpen])
 
   function handleChange(e) {
     if (e.target.name === 'name') {
@@ -48,7 +48,7 @@ export default function EditProfilePopup(props) {
         <input
           name='name'
           type='text'
-          value={name}
+          value={name || ''}
           onChange={handleChange}
           className='modal__input'
           id='name-input'
@@ -64,7 +64,7 @@ export default function EditProfilePopup(props) {
         <input
           name='about'
           type='text'
-          value={description}
+          value={description || ''}
           onChange={handleChange}
           className='modal__input'
           id='about-input'

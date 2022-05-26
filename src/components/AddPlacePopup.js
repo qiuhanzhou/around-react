@@ -1,16 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import PopupWithForm from './PopupWithForm'
 
 export default function AddPlacePopup(props) {
+  useEffect(() => {
+    setTitle('')
+    setLink('')
+  }, [props.isOpen])
+
   const [title, setTitle] = useState('')
   const [link, setLink] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault()
-    // Pass the latest values of the input ref (uncontrolled component) to the external handler
+    // Pass the latest input value (controlled component) to the external handler
     props.onAddPlaceSubmit({ name: title, link })
   }
+
   function handleChange(e) {
     if (e.target.name === 'title') {
       setTitle(e.target.value)
@@ -39,6 +45,7 @@ export default function AddPlacePopup(props) {
           minLength='1'
           maxLength='30'
           onChange={handleChange}
+          value={title}
         />
         <span className='modal__error title-input-error'></span>
       </label>
@@ -52,6 +59,7 @@ export default function AddPlacePopup(props) {
           id='url-input'
           required
           onChange={handleChange}
+          value={link}
         />
         <span className='modal__error url-input-error'></span>
       </label>
